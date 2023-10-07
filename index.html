@@ -3,7 +3,51 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>MyPlanner</title>
+    <title>TaskManager</title>
+    <link rel="stylesheet" href="scss/main.css" />
+
+    <script
+      src="https://kit.fontawesome.com/796c612388.js"
+      crossorigin="anonymous"
+    ></script>
   </head>
-  <body></body>
+  <body>
+    <!-- Header Section -->
+
+    <header class="text-white" id="header"></header>
+
+    <!-- Hero Section -->
+
+    <div class="container p-3">
+      <img
+        src="images/Black Minimal Motivation Quote LinkedIn Banner.png"
+        alt=""
+        class="img-fluid rounded-4 shadow-lg"
+      />
+    </div>
+
+    <!-- Main Section -->
+
+    <div class="container p-5 p-md-0 p-xl-0">
+      <div class="d-flex justify-content-between align-items-center pb-1">
+        <span>Your Tasks</span>
+        <span
+          >Sort by priority:<button class="btn" id="sort">
+            <i class="fa-solid fa-arrow-up-wide-short arrow1"></i></button
+        ></span>
+      </div>
+      <hr />
+      <div
+        class="row row-cols-lg-4 row-cols-md-3 row-cols-sm-1 gap-5 justify-content-center pb-5 pt-5"
+        id="results"
+      ></div>
+    </div>
+
+    <!-- Footer Section -->
+
+    <footer class="bg-primary" id="footer"></footer>
+    <script src="node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="js/data.js"></script>
+    <script src="js/script.js"></script>
+  </body>
 </html>

@@ -1,0 +1,49 @@
+
+$primary: #131515;
+
+// Include all of Bootstrap to my project
+@import "../node_modules/bootstrap/scss/bootstrap";
+
+// A little bit custom styling of bootstrap classes :) 
+
+.navbar-brand {
+    color: $white;
+}
+
+.navbar-brand:hover {
+    color: $danger;
+}
+
+.nav-link {
+    color: $white;
+}
+
+.nav-link:hover {
+    color: $danger;
+}
+
+.badge {
+    border-radius: 0;
+}
+
+.card-img-top {
+    border-radius: 0;
+}
+
+.arrow1:hover{
+    color: $danger;
+    transition: 0.3s ease-in;
+}
+
+.navbar-toggler {
+    background-color: $danger;
+}
+
+.transformx{
+    transition: transform 0.5s ease;
+}
+
+.transformx:hover {
+    transform: scale(1.1);
+}
+
