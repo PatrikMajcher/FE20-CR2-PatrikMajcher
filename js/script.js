@@ -42,44 +42,8 @@ header.innerHTML = `
 // Pushing main section content to HTML elements
 
 let results = document.getElementById("results");
-data.forEach(data => {
-    results.innerHTML += `
-    <div class="card p-0 shadow-lg transformx">
-    <span class="badge text-bg-primary">Task</span>
-    <img
-      src="${data.img}"
-      class="card-img-top"
-      alt="..."
-    />
-    <div class="card-body">
-      <h5 class="card-title text-center">${data.taskName}</h5>
-      <p class="card-text text-center">
-        ${data.description}
-      </p>
-      <hr />
-
-      <div>
-        <i class="fa-solid fa-triangle-exclamation"></i>
-        <span>Priority level:<span class="num p-1">${data.importance}</span> </span>
-      </div>
-      <div>
-        <i class="fa-solid fa-calendar-days"></i>
-        <span>Deadline:<span>${data.deadLine}</span></span>
-      </div>
-      <hr />
-
-      <div class="d-flex justify-content-around">
-        <button class="btn btn-danger btn-sm" type="button">
-          Delete
-        </button>
-       
-        <button class="btn btn-success btn-sm myBtn" type="button">
-          Importance<i class="fa-solid fa-circle-up"></i>
-        </button>
-      </div>
-    </div>
-  </div>
-  `;
+data.forEach(taskData => {
+  results.innerHTML += createTaskCard(taskData);
 });
 
 // Creating a function and eventlistener for each button
@@ -121,6 +85,47 @@ myBtn.forEach((btn , i) => {
         applyBackgroundColor(index);
     }); 
 
+    // Creating function for creating task card
+    function createTaskCard(data) {
+      return `
+      <div class="card p-0 shadow-lg transformx">
+      <span class="badge text-bg-primary">Task</span>
+      <img
+        src="${data.img}"
+        class="card-img-top"
+        alt="..."
+      />
+      <div class="card-body">
+        <h5 class="card-title text-center">${data.taskName}</h5>
+        <p class="card-text">
+          ${data.description}
+        </p>
+        <hr />
+  
+        <div>
+          <i class="fa-solid fa-triangle-exclamation"></i>
+          <span>Priority level:<span class="num p-1">${data.importance}</span> </span>
+        </div>
+        <div>
+          <i class="fa-solid fa-calendar-days"></i>
+          <span>Deadline:<span>${data.deadLine}</span></span>
+        </div>
+        <hr />
+  
+        <div class="d-flex justify-content-around">
+          <button class="btn btn-danger btn-sm" type="button">
+           Delete
+          </button>
+       
+          <button class="btn btn-success btn-sm myBtn" type="button">
+            Importance<i class="fa-solid fa-circle-up"></i>
+          </button>
+        </div>
+      </div>
+    </div>
+      `;
+    }
+
 
 
 
@@ -131,48 +136,8 @@ myBtn.forEach((btn , i) => {
         let sort = data.sort((a, b) => b.importance - a.importance);
         document.getElementById("results").innerHTML = ""; 
         sort.forEach((data,index) => {
-            document.getElementById("results").innerHTML += `
-            <div class="card p-0 shadow-lg transformx">
-            <span class="badge text-bg-primary">Task</span>
-            <img
-              src="${data.img}"
-              class="card-img-top"
-              alt="..."
-            />
-            <div class="card-body">
-              <h5 class="card-title text-center">${data.taskName}</h5>
-              <p class="card-text">
-                ${data.description}
-              </p>
-              <hr />
-        
-              <div>
-                <i class="fa-solid fa-triangle-exclamation"></i>
-                <span>Priority level:<span class="num p-1">${data.importance}</span> </span>
-              </div>
-              <div>
-                <i class="fa-solid fa-calendar-days"></i>
-                <span>Deadline:<span>${data.deadLine}</span></span>
-              </div>
-              <hr />
-        
-              <div class="d-flex justify-content-around">
-                <button class="btn btn-danger btn-sm" type="button">
-                 Delete
-                </button>
-             
-                <button class="btn btn-success btn-sm myBtn" type="button">
-                  Importance<i class="fa-solid fa-circle-up"></i>
-                </button>
-              </div>
-            </div>
-          </div>
-          `;
-         
+          document.getElementById("results").innerHTML += createTaskCard(data);
           applyBackgroundColor(index);
-
-      
-
         });
 
         results.querySelectorAll(".myBtn").forEach((btn, index) => {
